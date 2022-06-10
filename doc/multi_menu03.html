@@ -13,11 +13,11 @@
         function mob_hover() {
           var w_w = $(window).width();
           if (w_w > 767) {
-            console.log("커커커");
-            $("");
+            //console.log("커커커");
           } else {
+            //console.log("작음");
             //mobile
-            $(".header .gnb > ul > li a").click(function () {
+            $(".header .gnb > ul > li a").on("click", function () {
               $(this)
                 .siblings("ul")
                 .stop()
@@ -29,19 +29,20 @@
                 .slideUp(300);
               return false; //e.preventDefault();
             });
-            $(".mbtn").click(function () {
-              //$(".gnb").toggle();
-              if ($(".gnb").hasClass("on") == true) {
-                $(".gnb").removeClass("on");
-              } else {
-                $(".gnb").toggleClass("on");
-              }
-            });
           }
         }
         mob_hover();
-
+        $(".mbtn").on("click", function () {
+          if ($(".gnb").hasClass("on") == true) {
+            $(".gnb").removeClass("on");
+            $(".smenu").hide();
+          } else {
+            $(".gnb").addClass("on");
+          }
+        });
         $(window).resize(function () {
+          $(".gnb").removeClass("on");
+          $(".smenu").attr("style", "");
           mob_hover();
         });
       });
@@ -82,11 +83,12 @@
         display: block;
       }
       .mbtn {
-        position: fixed;
+        /* position: fixed;
         right: 30px;
         top: 30px;
-        line-height: 1;
+        line-height: 1; */
         cursor: pointer;
+        display: none;
       }
       .mbtn i {
         font-size: 30px;
@@ -135,6 +137,7 @@
         .mbtn {
           position: static;
           line-height: 60px;
+          display: block;
         }
         .mbtn i {
           vertical-align: middle;
