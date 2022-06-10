@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>basic layout</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/basic01.css" />
+    <style>
+      .header {
+        text-align: center;
+      }
+      .header h1 {
+        padding: 30px;
+      }
+      .header nav {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+      }
+      .header nav ul {
+        display: flex;
+      }
+      .header nav ul li {
+        flex: 1;
+      }
+      .header nav ul li a {
+        display: block;
+        padding: 15px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Wrap">
+      <header class="header">
+        <h1>header_layout</h1>
+        <nav>
+          <ul>
+            <li><a href="./header01.html">기본 header</a></li>
+            <li><a href="./header02.html">전체보기가 있는 header</a></li>
+            <li><a href="./header03.html">gnb가 가운대 있는 header</a></li>
+            <li><a href="./header05.html">로고가 가운대 있는 헤더</a></li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <div class="main_visual"></div>
+      </main>
+      <footer class="footer">&copy; basic temlate.</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position 02</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      header {
+        background: #f00;
+      }
+      main {
+        background: pink;
+      }
+      footer {
+        background: purple;
+      }
+      .sticky {
+        position: sticky;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        line-height: 100vh;
+        text-align: center;
+        color: #fff;
+      }
+      /*스크롤시 섹션이 올라가서 보여주는 효과를 쓸때 사용함*/
+      .container {
+        display: flex;
+      }
+      .container figure {
+        flex: 1;
+        line-height: 1.4;
+      }
+      .container figure:first-child {
+        background: #fff;
+        height: 100vh;
+        color: #333;
+      }
+      .container figure:last-child {
+        background: #333;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="sticky">header</header>
+    <main class="sticky">main</main>
+    <section class="sticky">
+      <div class="container">
+        <figure>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat nam
+          iste aspernatur labore repellat, rem quisquam voluptas cumque fugit
+          veritatis neque odio repellendus magnam, porro illum, sequi unde totam
+          voluptates voluptatem aut non delectus quae eaque. Beatae eius in
+          nesciunt, voluptates soluta repellat eum! Ea expedita, iste culpa unde
+          odio cum nam praesentium alias molestiae itaque velit ad nemo,
+          repudiandae eius. Voluptas esse ex suscipit mollitia impedit corporis,
+          magni optio a. Necessitatibus, excepturi provident in aliquid harum
+          illo eaque, non assumenda magni, eius ullam! Natus consequuntur
+          labore, unde mollitia, reprehenderit ipsum at esse illo itaque velit
+          delectus autem ea, ducimus deleniti repellat modi distinctio
+          laudantium nemo facere veritatis repudiandae iusto excepturi. Incidunt
+          nam nemo assumenda minus beatae, libero expedita itaque harum
+          inventore, ullam magnam dignissimos ea iure ad dolorum alias deserunt
+          nihil debitis. Non exercitationem totam, vitae odio quasi maxime nemo
+          fuga placeat veritatis, minima nulla ipsum neque, facere ipsa unde?
+          Reiciendis voluptate quasi earum? Eos neque fugit a cumque, odit cum
+          dolore ipsum ex libero mollitia inventore nesciunt eligendi nostrum.
+          Molestias quis tempore eius aliquam in fuga non? Placeat repellat
+          assumenda voluptatibus, explicabo obcaecati minima perspiciatis,
+          mollitia dicta ullam, possimus cupiditate! Facilis vero reprehenderit,
+          deleniti a repudiandae dolore eligendi?
+        </figure>
+        <figure></figure>
+      </div>
+    </section>
+    <footer class="sticky">footer</footer>
+  </body>
+</html>

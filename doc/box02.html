@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>css 선택자/box의 기본성질02</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* outline: 1px solid #ff0; - 작업물 확인시 사용 */
+      }
+      /* tag 선택자 / 후선 선택자 */
+      section li {
+        color: red;
+      }
+      section li:nth-child(2) {
+        color: purple;
+      }
+      section div:nth-of-type(2) {
+        color: blue;
+      }
+      #color {
+        color: pink;
+      }
+      section li.color + li {
+        /*tag선택자가 클래스보다 높으므로 붙여줘야함*/
+        /*인접선택자*/
+        color: brown;
+      }
+      section li.color ~ li {
+        /*형제선택자*/
+        color: green;
+      }
+      input {
+        outline: none;
+      }
+      /*attribute 선택자(속성)*/
+      input[type="text"] {
+        border: 1px solid red;
+      }
+      [class="color"] {
+        background: #ff0;
+      }
+      [class="col"] {
+        background: burlywood;
+      }
+      /*attribute end*/
+      section ul,
+      div {
+        background: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <ul>
+        <li>box01</li>
+        <li>box02</li>
+        <li id="color" class="color">box03</li>
+        <li class="col">box04</li>
+        <li>box05</li>
+        <li>box06</li>
+        <li>box07</li>
+      </ul>
+      <div>box08</div>
+      <div>box09</div>
+      <input type="text" />
+      <input type="search" />
+    </section>
+  </body>
+</html>

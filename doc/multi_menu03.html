@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mobile_menu</title>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/basic01.css" />
+    <script>
+      $(function () {
+        function mob_hover() {
+          var w_w = $(window).width();
+          if (w_w > 767) {
+            console.log("커커커");
+          } else {
+            //mobile
+            $(".header .gnb > ul > li a").click(function () {
+              $(this)
+                .siblings("ul")
+                .stop()
+                .slideToggle(300)
+                .parent("li")
+                .siblings()
+                .find(".smenu")
+                .stop()
+                .slideUp(300);
+              return false; //e.preventDefault();
+            });
+            $(".mbtn").click(function () {
+              //$(".gnb").toggle();
+              if ($(".gnb").hasClass("on") == true) {
+                $(".gnb").removeClass("on");
+              } else {
+                $(".gnb").toggleClass("on");
+              }
+            });
+          }
+        }
+        mob_hover();
+
+        $(window).resize(function () {
+          mob_hover();
+        });
+      });
+    </script>
+    <style>
+      .header {
+        line-height: 100px;
+      }
+      .header .container {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+      }
+      .header .gnb {
+        margin-left: auto;
+      }
+      .header .gnb > ul {
+        display: flex;
+        gap: 50px;
+      }
+      .header .gnb > ul > li {
+        position: relative;
+      }
+      .header .gnb .smenu {
+        display: none;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        z-index: 1;
+        width: 150px;
+        line-height: 40px;
+        transform: translateX(-50%);
+        text-align: center;
+        background: pink;
+      }
+      .header .gnb > ul > li:hover .smenu {
+        display: block;
+      }
+      .mbtn {
+        position: fixed;
+        right: 30px;
+        top: 30px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      .mbtn i {
+        font-size: 30px;
+        background: #f7f7f7;
+        padding: 5px;
+      }
+      @media (max-width: 767px) {
+        .header .container {
+          line-height: 60px;
+          justify-content: space-between;
+          padding: 0 15px;
+        }
+        .header .gnb {
+          position: fixed;
+          top: 0;
+          /* left: 0; */
+          left: -100%;
+          z-index: 2;
+          width: calc(100% - 90px);
+          height: 100%;
+          background: #fff;
+          /* display: none; */
+          transition: left 0.5s;
+        }
+        .header .gnb.on {
+          left: 0;
+        }
+        .header .gnb > ul {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          line-height: 40px;
+        }
+        .header .gnb > ul > li a {
+          display: block;
+          padding: 0 15px;
+        }
+        .header .gnb .smenu {
+          position: static;
+          width: auto;
+          transform: none;
+        }
+        .header .gnb > ul > li:hover .smenu {
+          display: none;
+        }
+        .mbtn {
+          position: static;
+          line-height: 60px;
+        }
+        .mbtn i {
+          vertical-align: middle;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!--시멘틱 태그사용-->
+      <header class="header">
+        <div class="container">
+          <h1>
+            <a href="/">
+              <img src="../img/logo.png" alt="" />
+            </a>
+          </h1>
+          <nav class="gnb">
+            <ul>
+              <li>
+                <a href="">menu01</a>
+                <ul class="smenu">
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu02</a>
+                <ul class="smenu">
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu03</a>
+                <ul class="smenu">
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu04</a>
+                <ul class="smenu">
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu05</a>
+                <ul class="smenu">
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu06</a>
+                <ul class="smenu">
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+          <div class="mbtn">
+            <i class="xi-bars"></i>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="main_visual">main</div>
+      </main>
+      <footer id="footer">
+        <a href="#!">
+          <!--위로 올라가지않음-->
+          <img src="../img/logo.png" alt="" />
+        </a>
+        &copy; kim.
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position 01</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        background: pink;
+        text-align: center;
+        color: #fff;
+      }
+      .position-relative div {
+        position: relative;
+        top: 100px;
+        left: 100px;
+      }
+      .position-absolute {
+        position: relative;
+        height: 100vh;
+      }
+      .position-absolute span {
+        position: absolute;
+        top: 0px;
+        width: 100px;
+        height: 100px;
+        background: rgba(255, 3, 5, 0.3);
+      }
+      .position-absolute span:first-child {
+        left: 20px;
+        top: 20px;
+      }
+      .position-absolute span:nth-child(2) {
+        left: 40px;
+        top: 40px;
+      }
+      .position-absolute span:nth-child(3) {
+        left: 60px;
+        top: 60px;
+      }
+      .position-absolute span:nth-child(4) {
+        left: 80px;
+        top: 80px;
+      }
+      .position-absolute span:last-child {
+        left: 100px;
+        top: 100px;
+      }
+      /* fixed는 viwport 기준 */
+      .position-fixed {
+        position: fixed;
+        top: 30px;
+        right: 30px;
+      }
+      .position-sticky {
+        position: sticky;
+        top: 0;
+        background: #333;
+        line-height: 100px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="position-sticky">header</header>
+    <section class="position-relative">
+      <div class="box">01</div>
+      <div class="box">02</div>
+      <div class="box">03</div>
+      <div class="box">04</div>
+      <div class="box">05</div>
+      <button class="position-fixed">fixed</button>
+    </section>
+    <section class="position-absolute">
+      <span class="box">01</span>
+      <span class="box">02</span>
+      <span class="box">03</span>
+      <span class="box">04</span>
+      <span class="box">05</span>
+    </section>
+  </body>
+</html>

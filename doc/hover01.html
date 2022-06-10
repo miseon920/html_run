@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hover01</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <style>
+      nav {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        line-height: 50px;
+        text-align: center;
+      }
+      nav > ul {
+        display: flex;
+        width: 1200px;
+        margin: 0 auto;
+      }
+      nav > ul li {
+        position: relative;
+        flex: 1;
+        border-left: 1px solid #ddd;
+      }
+      nav > ul li::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 3px;
+        background: pink;
+        transition: 0.3s;
+        /* margin: 0 auto; */
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      nav > ul li:hover::after {
+        width: 100%;
+      }
+      nav > ul li:last-child {
+        border-right: 1px solid #ddd;
+      }
+      nav > ul li a {
+        display: block;
+      }
+      .hover {
+        padding: 100px 0;
+        text-align: center;
+      }
+      .hover h2 {
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 0.5em;
+        margin-bottom: 10px;
+      }
+      .hover p {
+        font-size: 14px;
+        font-weight: 300;
+        letter-spacing: -0.025em;
+        margin-bottom: 30px;
+      }
+      .hover .container {
+        display: flex;
+        width: 1200px;
+        margin: 0 auto;
+        gap: 30px;
+      }
+      .hover .container figure {
+        position: relative;
+        flex: 1;
+        overflow: hidden;
+      }
+      .hover .container img {
+        max-width: 100%;
+        transition: 0.5s;
+      }
+      .hover01 .container figure .box {
+        position: absolute;
+        /* top: 100%; */
+        top: 0;
+        left: -100%;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background: rgba(0, 0, 0, 1);
+        display: flex;
+        justify-content: center; /*좌우*/
+        align-items: center; /*위아래*/
+        /* transition: top 0.5s; */
+        transition: left 0.5s;
+      }
+      .hover01 .container figure .box a {
+        color: #fff;
+      }
+      .hover01 .container figure:hover .box {
+        /* top: 0; */
+        left: 0;
+      }
+      .hover01 .container figure:hover img {
+        /* transform: scale(1.2); */
+        transform: translateX(100px);
+      }
+      .hover02 {
+        background: #f9f9f9;
+      }
+      .hover02 figure::before,
+      .hover02 figure::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        box-sizing: border-box; /*가상선택자에게는 전달이 안되므로 따로 준것*/
+        opacity: 0; /*높이값때문에 .으로 보이는것을 없애기 위해 준것*/
+      }
+      .hover02 figure::before {
+        left: 0;
+        top: 0;
+        border-top: 1px solid #000;
+        border-left: 1px solid #000;
+        transition: 0.5s;
+      }
+      .hover02 figure::after {
+        right: 0;
+        bottom: 0;
+        border-right: 1px solid #000;
+        border-bottom: 1px solid #000;
+        z-index: 1;
+        transition: 0.5s 0.3s;
+      }
+      .hover02 figure:hover::before,
+      .hover02 figure:hover::after {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+      }
+      .hover03 figure::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 10px;
+        background: linear-gradient(to left, #f00, #ff0);
+        transition: 0.5s 1.5s;
+      }
+
+      .hover03 figure:hover::before {
+        width: 100%;
+        transition: 0.5s;
+      }
+
+      .hover03 figure::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 10px;
+        height: 0;
+        background: linear-gradient(to bottom, #f00, #ff0);
+        transition: 0.5s 1s;
+      }
+
+      .hover03 figure:hover::after {
+        height: 100%;
+
+        transition: 0.5s 0.5s;
+      }
+
+      .hover03 figure .box::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 10px;
+        background: #f00;
+        transition: 0.5s 0.5s;
+      }
+
+      .hover03 figure:hover .box::before {
+        width: 100%;
+
+        transition: 0.5s 1s;
+      }
+
+      .hover03 figure .box::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 10px;
+        height: 0;
+        background: #f00;
+        transition: 0.5s;
+      }
+
+      .hover03 figure:hover .box::after {
+        height: 100%;
+        transition: 0.5s 1.5s;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="">menu01</a></li>
+        <li><a href="">menu02</a></li>
+        <li><a href="">menu03</a></li>
+        <li><a href="">menu04</a></li>
+        <li><a href="">menu05</a></li>
+      </ul>
+    </nav>
+    <section class="hover01 hover">
+      <h2>hover를 이용한 position 활용</h2>
+      <p>hover를 통하여 position에 대한 이해 및 활용</p>
+      <div class="container">
+        <figure>
+          <img src="../img/lesedilarona01.jpg" alt="" />
+          <div class="box">
+            <a href=""> HOVER </a>
+          </div>
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona02.jpg" alt="" />
+          <div class="box">
+            <a href=""> HOVER </a>
+          </div>
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona03.jpg" alt="" />
+          <div class="box">
+            <a href=""> HOVER </a>
+          </div>
+        </figure>
+      </div>
+    </section>
+    <section class="hover02 hover">
+      <h2>hover를 이용한 position 활용</h2>
+      <p>hover를 통하여 position에 대한 이해 및 활용</p>
+      <div class="container">
+        <figure>
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona03.jpg" alt="" />
+        </figure>
+      </div>
+    </section>
+    <section class="hover03 hover">
+      <h2>hover를 이용한 position 활용</h2>
+      <p>hover를 통하여 position에 대한 이해 및 활용</p>
+      <div class="container">
+        <figure>
+          <div class="box">
+            <img src="../img/lesedilarona01.jpg" alt="" />
+          </div>
+        </figure>
+        <figure>
+          <div class="box">
+            <img src="../img/lesedilarona02.jpg" alt="" />
+          </div>
+        </figure>
+        <figure>
+          <div class="box">
+            <img src="../img/lesedilarona03.jpg" alt="" />
+          </div>
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pseudo_element / 가상요소 선택자</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <style>
+      section {
+        padding: 100px 0;
+        text-align: center;
+      }
+      section:nth-child(even) {
+        background: #f9f9f9;
+      }
+      section h2 {
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        margin-bottom: 10px;
+      }
+      section p {
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: -0.025em;
+        margin-bottom: 30px;
+      }
+      section .container {
+        display: flex;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+      }
+      section .container figure {
+        flex: 1;
+      }
+      section .container figure img {
+        max-width: 100%;
+      }
+      .psd01 h2::before {
+        content: "앞";
+      }
+      .psd01 h2::after {
+        content: "뒤";
+      }
+      .psd02 h2 {
+        margin: 0;
+      }
+      .psd02 h2::after {
+        content: "";
+        display: block;
+        width: 1px; /*30px*/
+        height: 80px; /*1px*/
+        background: #000;
+        margin: 20px auto;
+      }
+      .psd03 h2:before,
+      .psd03 h2::after {
+        content: "";
+        display: inline-block;
+        width: 50px;
+        height: 2px;
+        background: red;
+        vertical-align: middle;
+      }
+      .psd03 h2:before {
+        margin-right: 5px;
+      }
+      .psd03 h2::after {
+        margin-left: 5px;
+      }
+      .psd04 h2::after {
+        content: "\e907";
+        font-family: xeicon !important; /*노토라서 안나오므로 xi 폰트를줌*/
+        font-weight: 400;
+      }
+      .psd04 figure::after {
+        content: "\e907";
+        font-family: xeicon !important; /*노토라서 안나오므로 xi 폰트를줌*/
+        font-weight: 400;
+      }
+      /*font-awesome
+             https://fontawesome.com/v5/cheatsheet
+             */
+      .psd04 .dot_list {
+        width: 300px;
+        text-align: left;
+      }
+      .psd04 .dot_list > li {
+        position: relative;
+        padding-left: 20px;
+        line-height: 1.2;
+        border-bottom: 1px solid #ddd;
+      }
+      .psd04 .dot_list > li::before {
+        content: "";
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        background: red;
+        vertical-align: middle;
+        border-radius: 50%;
+        position: absolute;
+        left: 0;
+        top: 6px;
+      }
+      .psd05 h2::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 40px;
+        background: #369;
+        margin: 0 auto;
+        border-radius: 50% 0;
+        transform: rotate(45deg);
+      }
+      .psd05 figure {
+        position: relative;
+      }
+      .psd05 figure::after {
+        content: attr(data-num);
+        position: absolute;
+        left: -30px;
+        top: -30px;
+        background: red;
+        color: #fff;
+        padding: 30px;
+        font-size: 30px;
+        border-radius: 50%;
+        transition: 1s;
+      }
+      .psd05 figure:hover::after {
+        transform: rotateX(720deg);
+      }
+      /*
+       #attr
+             * Simple usage
+       attr(data-count);
+       attr(title);
+
+       * With type
+       attr(src url);
+       attr(data-count number);
+       attr(data-width px);
+
+        *With fallback
+       attr(data-count number, 0);
+       attr(src url, "");
+       attr(data-width px, inherit);
+       attr(data-something, "default");
+       */
+      hr.list_hr {
+        /* border: 1px solid #000; */
+        border: none;
+        border-top: 1px solid #000;
+        margin: 50px 0;
+        position: relative;
+        overflow: visible;
+      }
+      hr.list_hr::after {
+        content: "\e907";
+        font-family: xeicon !important;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        background: #f7f7f7;
+        padding: 20px;
+        font-size: 20px;
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="psd01">
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+        provident et fugiat minus libero, reprehenderit obcaecati quidem magni
+        excepturi numquam!
+      </p>
+      <div class="container">
+        <figure>
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona03.jpg" alt="" />
+        </figure>
+      </div>
+    </section>
+    <section class="psd02">
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+        provident et fugiat minus libero, reprehenderit obcaecati quidem magni
+        excepturi numquam!
+      </p>
+      <div class="container">
+        <figure>
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona03.jpg" alt="" />
+        </figure>
+      </div>
+    </section>
+    <section class="psd03">
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+        provident et fugiat minus libero, reprehenderit obcaecati quidem magni
+        excepturi numquam!
+      </p>
+      <div class="container">
+        <figure>
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+        <figure>
+          <img src="../img/lesedilarona03.jpg" alt="" />
+        </figure>
+      </div>
+    </section>
+    <section class="psd04">
+      <h2>
+        <i class="xi-arrow-right"></i>
+        Lorem ipsum dolor sit.
+      </h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+        provident et fugiat minus libero, reprehenderit obcaecati quidem magni
+        excepturi numquam!
+      </p>
+      <div class="container">
+        <ul class="dot_list">
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+          <li>Lorem ipsum dolor minus libero, reprehenderit</li>
+        </ul>
+      </div>
+    </section>
+    <section class="psd05">
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+        provident et fugiat minus libero, reprehenderit obcaecati quidem magni
+        excepturi numquam!
+      </p>
+      <div class="container">
+        <figure data-num="01">
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure data-num="02">
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+        <figure data-num="03">
+          <img src="../img/lesedilarona03.jpg" alt="" />
+        </figure>
+      </div>
+    </section>
+    <section class="psd06">
+      <h2>Lorem ipsum dolor sit.</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+        provident et fugiat minus libero,
+      </p>
+      <hr class="list_hr" />
+      <p>reprehenderit obcaecati quidem magni excepturi numquam!</p>
+      <div class="container">
+        <figure data-num="01">
+          <img src="../img/lesedilarona01.jpg" alt="" />
+        </figure>
+        <figure data-num="02">
+          <img src="../img/lesedilarona02.jpg" alt="" />
+        </figure>
+        <figure data-num="03">
+          <img src="../img/lesedilarona03.jpg" alt="" />
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>

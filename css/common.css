@@ -1,0 +1,41 @@
+@charset "utf-8";
+.main_wrap {
+  padding: 30px;
+}
+.main_wrap h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.main_wrap h2 {
+  font-size: 21px;
+  padding-top: 15px;
+}
+.main_wrap ul {
+  padding-bottom: 30px;
+}
+.main_wrap ul a {
+  color: red;
+  font-size: 17px;
+  display: block;
+  padding: 10px 0;
+}
+.main_wrap ul a::after {
+  content: "바로가기";
+  display: inline-block;
+  padding-left: 5px;
+}
+.main_wrap ul a::before {
+  content: "";
+  display: inline-block;
+  width: 5px;
+  height: 15px;
+  background: red;
+  margin-right: 5px;
+}
+.main_wrap ul span {
+  display: block;
+}
+.main_wrap ul span::before {
+  content: "-";
+  display: inline-block;
+}

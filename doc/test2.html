@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"
+    ></script>
+  </head>
+  <body>
+    <div id="pdfArea">
+      <!--표 start-->
+      <div>
+        <h2>장애보고서</h2>
+        <div>
+          <!--inner-->
+          <h2>(제목 : 제목이다냐옹)</h2>
+          <div><!--표 top start--></div>
+          <!--표 top end-->
+          <div><!--표 bottom start--></div>
+          <!--표 bottom start-->
+        </div>
+      </div>
+      <!--표 end-->
+    </div>
+    <button type="button" onclick="savePDF()">PDF 다운</button>
+
+    <script type="text/javascript">
+      function savePDF() {
+        //저장 영역 div id
+        html2canvas($("#pdfArea")[0], {
+          //logging : true,		// 디버그 목적 로그
+          //proxy: "html2canvasproxy.php",
+          allowTaint: true, // cross-origin allow
+          useCORS: true, // CORS 사용한 서버로부터 이미지 로드할 것인지 여부
+          scale: 2, // 기본 96dpi에서 해상도를 두 배로 증가
+        }).then(function (canvas) {
+          // 캔버스를 이미지로 변환
+          var imgData = canvas.toDataURL("image/png");
+
+          var imgWidth = 190; // 이미지 가로 길이(mm) / A4 기준 210mm
+          var pageHeight = imgWidth * 1.414; // 출력 페이지 세로 길이 계산 A4 기준
+          var imgHeight = (canvas.height * imgWidth) / canvas.width;
+          var heightLeft = imgHeight;
+          var margin = 10; // 출력 페이지 여백설정
+          var doc = new jsPDF("p", "mm");
+          var position = 0;
+
+          // 첫 페이지 출력
+          doc.addImage(imgData, "PNG", margin, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+
+          // 한 페이지 이상일 경우 루프 돌면서 출력
+          while (heightLeft >= 20) {
+            // 35
+            position = heightLeft - imgHeight;
+            position = position - 20; // -25
+
+            doc.addPage();
+            doc.addImage(imgData, "PNG", margin, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+          }
+
+          // 파일 저장
+          doc.save("filename.pdf");
+        });
+      }
+      /*
+       // Javascript일 경우
+  html2canvas(document.getElementById("pdfArea")).then(function(canvas) {
+  });
+
+  // JQuery일 경우
+  html2canvas($("#pdfArea")[0]).then(function(canvas) {
+  });
+  ■ 외부이미지
+프린트 영역 내 이미지 경로가 외부 경로(외부 이미지)일 경우 이미지 영역이 빈화면으로 노출됨 (내부경로는 정상적으로 노출)
+
+외부 경로일 경우 프록시(proxy)를 사용하여야 함
+
+html2canvas-php-proxy
+https://github.com/brcontainer/html2canvas-php-proxy
+      */
+    </script>
+  </body>
+</html>

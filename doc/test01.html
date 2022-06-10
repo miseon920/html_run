@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2depth menu</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      #header {
+        line-height: 100px;
+        background: pink;
+      }
+      .container {
+        display: flex;
+        width: 1200px;
+        margin: 0 auto;
+        justify-content: space-between;
+        display: relative;
+      }
+      nav > ul {
+        display: flex;
+        gap: 30px;
+        text-align: center;
+      }
+      nav > ul::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 210px;
+        background: #e5e5e5;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        z-index: 1;
+        /* display: none; */
+        height: 0;
+        transition: all 0.5s;
+      }
+      nav > ul > li {
+        position: relative;
+        width: 120px;
+      }
+      nav > ul ul {
+        position: absolute;
+        z-index: 2;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        background: red;
+        height: 0;
+        overflow: hidden;
+        transition: all 0.5s;
+      }
+      nav > ul ul li {
+        line-height: 40px;
+      }
+      nav a {
+        display: block;
+      }
+      /*
+      nav > ul > li:hover ul,
+      nav > ul:hover::before {
+        display: block;
+      } */
+      nav > ul:hover ul,
+      nav > ul:hover::before {
+        height: 210px;
+      }
+      .main_visual {
+        height: 500px;
+        background: #333;
+      }
+      /*가상선택자는  :: 두개쓰는 것이 좋다 ie9부터 지원, 가상제외는 : 쓸것*/
+    </style>
+  </head>
+  <body>
+    <!-- *단어사이의 공백을 허용하지 않음
+          wrap-container:kebob case(-으로 이어줌)
+          Wrap : pascal case (첫글자 대문자)
+          wrap_container : snake case (_로 이어줌)
+          wrapContainer : camel case(두번째 단어 첫글자 대문자)
+           wrap_container-inner:BEM
+      -->
+    <div class="wrap">
+      <!--시멘틱 태그사용-->
+      <header id="header">
+        <div class="container">
+          <h1>logo</h1>
+          <nav>
+            <ul>
+              <li>
+                <a href="">menu01</a>
+                <ul>
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                  <li><a href="">smenu05</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu02</a>
+                <ul>
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                  <li><a href="">smenu05</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu03</a>
+                <ul>
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                  <li><a href="">smenu05</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="">menu04</a>
+                <ul>
+                  <li><a href="">smenu01</a></li>
+                  <li><a href="">smenu02</a></li>
+                  <li><a href="">smenu03</a></li>
+                  <li><a href="">smenu04</a></li>
+                  <li><a href="">smenu05</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <main>
+        <div class="main_visual">main</div>
+      </main>
+      <footer id="footer">&copy; kim.</footer>
+    </div>
+  </body>
+</html>

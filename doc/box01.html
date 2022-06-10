@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box의 기본성질01</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <!--외부 스타일 시트(External style sheet)-->
+    <style>
+      /*내부 스타일 시트(Internal style sheet)*/
+      div {
+        width: 1200px;
+        background: rgba(0, 0, 0, 0.3);
+        /*방향은 margin,padding,inset 모두 같음*/
+        margin: 50px 0;
+      }
+      div:first-child {
+        padding: 0 100px;
+        box-sizing: border-box; /*block의 안쪽으로 padding과 border을 포함시킴*/
+      }
+      h2 {
+        padding-bottom: 15px;
+        font-size: 21px;
+      }
+      ul,
+      ol {
+        padding-left: 5px;
+      }
+      ol {
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="color: red">box01</div>
+    <!--인라인 스타일(Inline style)-->
+    <div>box02</div>
+    <div>box03</div>
+    <!--alt+shift+방향키(↑↓)-->
+    <h2>box의 기본 성질 (display:block)</h2>
+    <ul>
+      <li>투명함</li>
+      <li>width,height이 auto</li>
+      <li>Y축으로 정렬됨 / 따라서 블록요소 옆에 블록이 올수 없음</li>
+    </ul>
+    <ol>
+      <li>태그는 크게 inline / block 으로 나뉨</li>
+      <li>
+        글자 그림 등 내용에 관여하는 태그 <span>span</span>
+        <strong>strong</strong>
+        <em>em</em>
+        <i>icon</i>
+        <button>btn</button>
+        <input type="text" /> input 은 인란라인 속성을 가지고 나머지는
+        block속성을 가진다.
+      </li>
+      <li>
+        block 속성은 width height margin padding 값을 갖고 inline속성은 좌우
+        margin padding 만을 가진다
+      </li>
+      <li>
+        inline 상하 padding의 경우 background를 포함하여 padding이 적용된 것
+        처럼 보인다.
+      </li>
+    </ol>
+    <ul>
+      <li>css는 레이아웃을 만들어줌</li>
+      <li>인라인 스타일이 외부/내부스타일 보다 우선시됨 - 계급이 높음</li>
+      <li>
+        javascript의 적용 범위는 인타일 스타일이므로 외부 내부보다 우선시됨
+      </li>
+      <li>syyle name rol:attribute,property / props(리액트)</li>
+    </ul>
+  </body>
+</html>
