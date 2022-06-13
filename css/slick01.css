@@ -1,0 +1,124 @@
+@charset "utf-8";
+img {
+  max-width: 100%;
+}
+.visual_slider figure {
+  height: 600px;
+}
+
+.visual_slider .item01 {
+  background: url(../img/mainvisual01.jpg) no-repeat center/cover;
+}
+.visual_slider .item02 {
+  background: url(../img/mainvisual02.jpg) no-repeat center/cover;
+}
+.visual_slider .item03 {
+  background: url(../img/mainvisual03.jpg) no-repeat center/cover;
+}
+.main {
+  position: relative;
+}
+.slogan {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1200px;
+  width: 100%;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+  z-index: 1;
+}
+.main.on .slogan {
+  color: #000;
+}
+.main .slick-dots {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main .slick-dots li {
+  display: inline-block;
+  width: 100px;
+  height: 5px;
+  background: #333;
+  margin: 0 2px;
+}
+.main .slick-dots li::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 100%;
+  background: #f00;
+}
+.main .slick-dots li.slick-active::after {
+  background: #f00;
+  width: 100%;
+  transition: all 4s;
+}
+.main .slick-dots li button {
+  display: none;
+}
+.main .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  font-size: 0;
+  border: 0;
+  background: transparent;
+  width: 100px;
+  height: 100px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  opacity: 0.3;
+  cursor: pointer;
+}
+.main .slick-arrow:hover {
+  opacity: 1;
+}
+.main .slick-prev {
+  left: 100px;
+  transform: translateY(-50%) rotate(-45deg);
+}
+.main .slick-next {
+  left: auto;
+  right: 100px;
+  transform: translateY(-50%) rotate(135deg);
+}
+.main.on .slick-arrow {
+  border-color: #000;
+}
+.main .wheel {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 55px;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  font-size: 0;
+  text-align: center;
+}
+.main .wheel span {
+  margin-top: 10px;
+  display: inline-block;
+  width: 3px;
+  height: 12px;
+  background: #fff;
+  border-radius: 1px;
+  animation: wheel 0.5s infinite;
+}
+
+@keyframes wheel {
+  0% {
+    margin-top: 10px;
+  }
+  50% {
+    margin-top: 15px;
+  }
+  100% {
+    margin-top: 10px;
+  }
+}
