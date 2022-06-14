@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+.slider01 {
+  padding: 100px 0;
+  position: relative;
+}
+.slider01 figure {
+  padding: 0 30px;
+}
+.slider01 figure,
+.slider02 .right figure.slick-slide,
+.slider02 .right figure.slick-active ~ .slick-active {
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+.slider01 figure.slick-center,
+.slider02 .right figure.slick-active {
+  filter: grayscale(0);
+  opacity: 1;
+}
+.slider01 .slick-dots {
+  margin: 30px 0;
+  text-align: center;
+}
+.slider01 .slick-dots li {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  margin: 0 15px;
+}
+.slider01 .slick-dots li.slick-active {
+  background: #369;
+}
+.slider01 .slick-dots button {
+  display: none;
+}
+.slider01 .slide_arrow i {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #fff;
+  background: rgba(0, 0, 0.5);
+  padding: 10px 20px;
+}
+.slider01 .slide_arrow i:first-child {
+  margin-left: -650px;
+}
+.slider01 .slide_arrow i:last-child {
+  margin-left: 650px;
+}
+figure img {
+  max-width: 100%;
+}
+.slider01 .box {
+  width: 400px;
+  height: 600px;
+  background: #fff;
+  border: 1px solid #333;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-600px);
+}
+.slider01 .box .num {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+}
+.slider01 .content li {
+  display: none;
+}
+.slider01 .content li.on {
+  display: block;
+}
+.slider02 {
+  background: #f7f7f7;
+  padding: 100px 0;
+  overflow: hidden;
+}
+.slider02 .container {
+  /* width: calc(calc(calc(100% - 1200px) / 2) + 1200px); */
+  width: 1200px;
+  margin: 0 auto;
+}
+.slider02 .container .inner {
+  position: relative;
+}
+.left {
+  float: left;
+}
+.left_slider {
+  width: 400px;
+}
+.right {
+  position: absolute;
+  left: 460px;
+  top: 0;
+}
+.right_slider {
+  margin: 0 -10px;
+  padding-top: 100px;
+}
+.right .slick-slide {
+  width: 250px;
+  padding: 0 10px;
+}
+.right_arrow i {
+  font-size: 50px;
+  padding: 20px;
+  border: 1px solid #333;
+}
