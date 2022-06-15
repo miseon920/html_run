@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+#header {
+  line-height: 100px;
+  border-bottom: 1px solid #000;
+}
+#header .container {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 0 auto;
+}
+#header .gnb ul {
+  display: flex;
+  gap: 40px;
+}
+#header .gnb ul li {
+  flex: 1;
+}
+#header .gnb ul li a {
+  display: block;
+}
+#main,
+.main_visual {
+  position: relative;
+}
+#main .main_slider figure {
+  position: relative;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.main_slider .item01 {
+  background: url(../img/mainvisual01.jpg);
+}
+.main_slider .item02 {
+  background: url(../img/mainvisual02.jpg);
+}
+.main_slider .item03 {
+  background: url(../img/mainvisual03.jpg);
+}
+.main_slider .inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  color: #fff;
+  text-shadow: 0 0 3px #000;
+}
+.main_slider h2 {
+  font-size: 55px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.main_slider p {
+  font-size: 15px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.main_slider a {
+  display: inline-block;
+  background: #333;
+  padding: 5px 15px 8px 15px;
+}
+.main_slider h2,
+.main_slider p,
+.main_slider a {
+  transform: translateY(100px);
+  opacity: 0;
+}
+.main_slider figure.on h2,
+.main_slider figure.on p,
+.main_slider figure.on a {
+  transform: translateY(0);
+  opacity: 1;
+}
+.main_slider figure.on h2 {
+  transition: 0.5s;
+}
+.main_slider figure.on p {
+  transition: 0.5s 0.5s;
+  /*뒤에부분이 딜레이*/
+}
+.main_slider figure.on a {
+  transition: 0.5s 1s;
+}
+.num_box {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: right;
+  width: 1200px;
+  z-index: 1;
+}
+.main_visual .num {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: url(../img/num.png);
+  background-position-y: 0;
+  transition: 1s;
+}
+.main_visual .custom_dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  display: flex;
+}
+.main_visual .custom_dots li {
+  position: relative;
+  flex: 1;
+}
+
+.main_visual .custom_dots li ~ li {
+  border-left: 1px solid #fff;
+}
+
+.main_visual .custom_dots li a {
+  position: relative;
+  display: block;
+  padding: 10px;
+}
+
+.main_visual .custom_dots li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #f00;
+}
+
+.main_visual .custom_dots li.on::before {
+  width: 100%;
+  transition: 2s;
+}
+
+.main_visual i {
+  font-size: 30px;
+  vertical-align: middle;
+}
