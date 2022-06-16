@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동영상 01</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/jquery.mb.YTPlayer.min.css" />
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/jquery.mb.YTPlayer.min.js"></script>
+    <style>
+      body {
+        height: 200vh;
+      }
+      .fix_bg {
+        background: url(../img/mainvisual01.jpg) no-repeat fixed center/cover;
+        padding: 200px 0;
+        text-align: center;
+        color: #fff;
+      }
+      section h2 {
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+      section p {
+        font-size: 15px;
+        font-weight: 300;
+        margin-bottom: 10px;
+      }
+      .movie01 {
+        padding: 100px 0;
+      }
+      .movie01 .container {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .movie01 .container > div {
+        flex: 1;
+      }
+      .movie01 video {
+        max-width: 100%;
+      }
+      section i {
+        padding: 10px;
+        font-size: 30px;
+        background: #f7f7f7;
+        border-radius: 3px;
+        margin-right: 10px;
+      }
+      .movie02 {
+        padding: 200px 0;
+        text-align: center;
+        color: #fff;
+      }
+      .movie02 i {
+        color: #000;
+      }
+    </style>
+    <script>
+      $(function () {
+        $(".movie01 .xi-pause").click(function () {
+          $(".video01").trigger("pause");
+        });
+        $(".movie01 .xi-play").click(function () {
+          $(".video01").trigger("play");
+        });
+        jQuery("#bgndVideo").YTPlayer({
+          videoURL: "https://youtu.be/lKsmjjyITc0",
+          containment: ".movie02", //재생위치
+          autoPlay: true,
+          showControls: false,
+          mute: true,
+          startAt: 0,
+          opacity: 1,
+          playOnlyIfsible: true, //동영상위치에 왔을때 재생시키기 위한것
+        });
+        //https://github.com/pupunzi/jquery.mb.YTPlayer/wiki
+        $(".movie02 .xi-pause").click(function () {
+          $("#bgndVideo").YTPPause();
+        });
+        $(".movie02 .xi-play").click(function () {
+          $("#bgndVideo").YTPPlay();
+        });
+        $(".movie02 .xi-bars").click(function () {
+          $("#bgndVideo").YTPMute();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <section class="fix_bg">
+      <h2>배경 고정 : parallax</h2>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis,
+        tempore!
+      </p>
+    </section>
+    <section class="movie01">
+      <div class="container">
+        <div class="left">
+          <video
+            src="../img/cat.mp4"
+            autoplay
+            muted
+            playsinline
+            class="video01"
+          ></video>
+        </div>
+        <div class="right">
+          <h2>mp4 동영상</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <div class="control">
+            <i class="xi-pause"></i>
+            <i class="xi-play"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--https://github.com/pupunzi/jquery.mb.YTPlayer-->
+    <section class="movie02">
+      <h2>유튜브 동영상</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+      <div class="control">
+        <i class="xi-pause"></i>
+        <i class="xi-play"></i>
+        <i class="xi-bars"></i>
+      </div>
+      <div id="bgndVideo" class="player"></div>
+      <!--동영상을 백그라운드로 깔기-->
+    </section>
+  </body>
+</html>
