@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>visual & header position</title>
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/slick.css" />
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/slick.min.js"></script>
+    <style>
+      header {
+        position: absolute;
+        /* top: 0;
+        left: 0;*/
+        width: 100%;
+        inset: 0 0 auto 0;
+        line-height: 100px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        color: #fff;
+        font-size: 17px;
+        z-index: 1;
+      }
+      header .container {
+        display: flex;
+        justify-content: space-between;
+        /* max-width: 1200px;
+        width: 100%; */
+        width: calc(100% - 100px);
+        margin: 0 auto;
+      }
+      header nav {
+        margin-left: auto;
+      }
+      header nav > ul {
+        display: flex;
+        gap: 40px;
+      }
+      .main_slider {
+        position: relative;
+        height: 100vh;
+        background: url(../img/mainvisual01.jpg) no-repeat center/cover;
+        /* margin-bottom: 100vh; */
+      }
+      .product {
+        padding: 100px 0;
+      }
+      .product .container {
+        width: 1200px;
+        margin: 0 auto;
+      }
+      .product_slider img {
+        max-width: 100%;
+      }
+      /*.product_slider .slick-track {
+        margin: 0 -15px;
+      }*/
+      .product_slider figure {
+        padding: 0 15px;
+      }
+    </style>
+    <script>
+      $(function () {
+        $(".product_slider").slick({
+          slidesToShow: 5,
+          centerMode: true,
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>
+          <a href="/">
+            <img src="../img/logo.png" alt="" />
+          </a>
+        </h1>
+        <nav>
+          <ul>
+            <li><a href="">menu01</a></li>
+            <li><a href="">menu02</a></li>
+            <li><a href="">menu03</a></li>
+            <li><a href="">menu04</a></li>
+            <li><a href="">menu05</a></li>
+            <li><a href="">menu06</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section class="main_visual">
+      <div class="main_slider"></div>
+    </section>
+    <section class="product">
+      <div class="container">
+        <div class="product_slider">
+          <figure>
+            <img src="../img/lesedilarona01.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="../img/lesedilarona02.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="../img/lesedilarona03.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="../img/lesedilarona01.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="../img/lesedilarona02.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="../img/lesedilarona03.jpg" alt="" />
+          </figure>
+          <figure>
+            <img src="../img/lesedilarona03.jpg" alt="" />
+          </figure>
+        </div>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>
