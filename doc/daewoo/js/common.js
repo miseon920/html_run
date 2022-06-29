@@ -36,9 +36,8 @@ $(function () {
   });
   $("#full_box").fullpage({
     //options here
-    //autoScrolling: true,
-    //scrollHorizontally: true,
     //navigation: true,
+
     verticalCentered: true,
     anchors: [
       //nav custom
@@ -64,12 +63,18 @@ $(function () {
         $("#header").removeClass("on");
         off_img("#header");
       }
-      // console.log(idx);
+      //console.log(idx);
       if (idx == 1 || idx == 4 || idx == 5) {
         $(".gnb").addClass("white");
       } else {
         $(".gnb").removeClass("white");
       }
+      if (idx == 2) {
+        $("#utb").YTPPlay();
+      } else {
+        $("#utb").YTPPause();
+      }
+
       if (idx == 5) {
         $(".gnb li")
           .eq(idx - 1)
@@ -77,21 +82,21 @@ $(function () {
       }
     },
   });
-  // jQuery("#utb").YTPlayer({
-  //   videoURL: "https://youtu.be/eKP4g57JHzU",
-  //   containment: ".utb", //재생위치
-  //   autoPlay: true,
-  //   showControls: false,
-  //   mute: true,
-  //   startAt: 0,
-  //   opacity: 1,
-  //   playOnlyIfsible: true,
-  // });
+  jQuery("#utb").YTPlayer({
+    videoURL: "https://youtu.be/eKP4g57JHzU",
+    containment: ".utb", //재생위치
+    autoPlay: false,
+    showControls: true,
+    mute: true,
+    startAt: 0,
+    opacity: 1,
+    playOnlyIfsible: true,
+  });
 
-  // $(".utb .zoom").click(function () {
-  //   $("#utb").YTPFullscreen();
-  //   return false;
-  // });
+  $(".utb .zoom").click(function () {
+    $("#utb").YTPFullscreen();
+    return false;
+  });
 
   //left_slider
   var left_slider = $(".section4 .left_slider ul");
@@ -131,6 +136,7 @@ $(function () {
       $(".hover_txt").removeClass("on");
     });
 });
+
 function on_img(obj) {
   var o_img = $(obj).find("img").attr("src");
   var real_img = o_img.replace("_off", "_on");
