@@ -1,0 +1,95 @@
+@charset "utf-8";
+
+/* h1.on {
+  color: purple;
+} */
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  max-width: 1920px;
+  width: 100%;
+  padding: 10px 40px;
+  /* display: flex;
+  justify-content: space-between; */
+  background: transparent;
+  color: #fff;
+  z-index: 5;
+  line-height: 77px;
+  transition: 0.5s all;
+}
+header.on {
+  background: rgba(0, 0, 0, 0.5);
+}
+h1 {
+  /* position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%); */
+  float: left;
+}
+h1 a {
+  display: block;
+  font-size: 0;
+}
+nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.tel {
+  font-size: 30px;
+  float: right;
+  /* position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%); */
+}
+.tel i {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 10px;
+  font-size: 13px;
+  margin-right: 10px;
+  vertical-align: 3px;
+  border-radius: 50%;
+}
+.visual {
+  position: relative;
+  padding-bottom: 48.398%;
+  overflow: hidden;
+}
+.gnb ul {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+.visual .mainSwiper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+/* figure.on {
+  font-size: 50px;
+  transition: 0.5s all;
+} */
+figure {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.item01 {
+  background: url(../images/bg_intro01.jpg);
+}
+.item02 {
+  background: url(../images/bg_intro02.jpg);
+}
+.item03 {
+  background: url(../images/bg_intro03.jpg);
+}
+.box {
+  height: 300vh;
+}
+.screvent:not(.visual) {
+  height: 100vh;
+}
