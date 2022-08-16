@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플러그인사용01</title>
+    <style>
+        .sec {
+            height: 100vh;
+        }
+
+        .m01 {
+            text-align: center;
+            font-size: 50px;
+            font-weight: bolder;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="./js/countUp.min.js"></script>
+</head>
+
+<body>
+    <h1>카운트사용 02</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">언로드 이벤트 : 윈도우 로드 후 바로 카운트</a></li>
+            <li><a href="index2.html">스크롤 이벤트 : 일정 위치에서 카운트</a></li>
+        </ul>
+    </nav>
+    <section class="sec"></section>
+    <section class="sec m01">
+        <div id="Count">000</div>
+    </section>
+    <section class="sec"></section>
+    <script>
+        /**
+         [0] 카운트를 보여줄 ID
+         [1] 시작 카운트
+         [2] 종료 카운트
+         [3] 소수점
+         [4] 시작 ~ 종료 까지 실행 시간
+         [5] 옵션
+         */
+        var ncount = new CountUp("Count", 1000, 3000);
+        $(window).on('scroll', function () {
+            // 스크롤 량을 구해서 변수에 담음
+            var sct = $(window).scrollTop();
+            // 이벤트가 일어날 구역의 위치 값을 구해서 변수에 담음
+            var st_top = $('.m01').offset().top;
+            // 스크롤량과 위치값을 비교해서 삼항연산자로 카운트를 스타트하거나 리셋함.
+            sct > st_top - 500
+                ? ncount.start()
+                : ncount.reset();
+        })
+
+    </script>
+</body>
+
+</html>

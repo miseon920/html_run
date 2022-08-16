@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>플러그인사용01</title>
+    <script src="./js/countUp.min.js"></script>
+</head>
+
+<body>
+    <h1>카운트사용 01</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">언로드 이벤트 : 윈도우 로드 후 바로 카운트</a></li>
+            <li><a href="index2.html">스크롤 이벤트 : 일정 위치에서 카운트</a></li>
+        </ul>
+    </nav>
+    <section class="sec"></section>
+    <section class="sec">
+        <div id="Count"></div>
+    </section>
+    <section class="sec"></section>
+    <script>
+        // 참고사이트01 : https://hiro1983.tistory.com/42
+        // 참고사이트02 : https://inorganik.github.io/countUp.js/
+        const options = {
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+            prefix: '',
+            suffix: ''
+        };
+
+        /**
+         [0] 카운트를 보여줄 ID
+         [1] 시작 카운트
+         [2] 종료 카운트
+         [3] 소수점
+         [4] 시작 ~ 종료 까지 실행 시간
+         [5] 옵션
+         */
+        let ncount = new CountUp("Count", 0, 3000, 0, 2.5, options);
+        ncount.start();
+    </script>
+</body>
+
+</html>
