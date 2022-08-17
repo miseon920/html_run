@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //direction: "vertical",
     loop: true,
     autoplay: {
-      delay: 2500,
+      delay: 3000,
       disableOnInteraction: false,
     },
     // If we need pagination
@@ -85,7 +85,7 @@ window.addEventListener("DOMContentLoaded", () => {
   //   console.log("slide changed");
   // });
   const last_c = document.querySelector("main").lastElementChild;
-  const last_ch = last_c.offsetTop;
+  const last_ch = last_c.offsetTop - 300;
   window.addEventListener("scroll", function () {
     let sct = window.scrollY;
     const SCE_ELE = document.querySelectorAll(".screvent");
@@ -96,7 +96,9 @@ window.addEventListener("DOMContentLoaded", () => {
     SCE_ELE.forEach((el, index) => {
       const idx = index + 1;
       //el.classList.add("on");
-      sct > el.offsetTop ? el.classList.add("on") : el.classList.remove("on");
+      sct > el.offsetTop - 300
+        ? el.classList.add("on")
+        : el.classList.remove("on");
     });
     sct >= last_ch ? last_c.classList.add("on") : last_c.classList.remove("on");
   });
